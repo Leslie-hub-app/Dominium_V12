@@ -1036,6 +1036,7 @@ export interface SimulationEvent {
   description: string;
   severity?: SimulationEventSeverity;
   priority?: number;
+  importance?: number;
   source?: string;
   sourceEntityId?: string;
   createdMonth?: number;
@@ -2057,7 +2058,7 @@ export interface PoliticalGovernanceProfile {
   version:number; campaigns:{id:string;office:string;jurisdiction:string;budget:number;polling:number;status:'ACTIVE'|'WON'|'LOST'|'WITHDRAWN';startedTick:number}[];
   publicBudgets:Record<string,number>; serviceLevels:Record<string,number>;
   approvalHistory:{tick:number;approval:number;office:string}[];
-  policyHistory:{tick:number;office:string;area:string;decision:string;effect:string}[];
+  policyHistory:{tick:number;office:string;area:any;decision:string;effect:string}[];
   publicEvents:{tick:number;title:string;narrative:string;severity:'INFO'|'WARNING'|'CRISIS'}[];
   officePowers:Record<string,string[]>;
 }
@@ -2308,6 +2309,7 @@ export interface GameState {
   personalManagement?: PersonalManagementProfile;
   taxSystem?: TaxSystemProfile;
   justiceWorld?: JusticeWorldProfile;
+  deepGameplay?: any;
 
   // Expansion 2 Test & Alias state wrappers
   month?: number;
@@ -3416,6 +3418,7 @@ export interface GlobalWorldState {
   globalCapitalFlowScore: number;  // 0 - 100
   activeInternationalTreaties: string[];
   globalCrisis: string | null;
+  worldStability?: number;
 }
 
 export interface PoliticalActor {
@@ -4179,7 +4182,7 @@ export interface LandParcel {
   country: string;
   areaSqm: number;
   zoning: string;
-  permittedUses: string[];
+  permittedUses?: string[];
   purchasePrice: number;
   currentValue: number;
   infrastructureScore: number;

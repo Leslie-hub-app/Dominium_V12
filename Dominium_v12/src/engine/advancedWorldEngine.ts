@@ -53,7 +53,7 @@ export function validateWorldIntegrity(state: GameState): WorldIntegrityIssue[] 
   if (!Number.isFinite(world.economy.nationalGdpGrowth)) {
     issues.push({ severity: 'error', system: 'economy', message: 'GDP growth is not finite.' });
   }
-  if (!Number.isFinite(world.global.worldStability)) {
+  if (world.global.worldStability !== undefined && !Number.isFinite(world.global.worldStability)) {
     issues.push({ severity: 'error', system: 'global', message: 'World stability is not finite.' });
   }
   if (world.worldHistory.length > 5000) {
@@ -82,6 +82,6 @@ export function getWorldMetrics(state: GameState) {
     activeEvents: world.activeWorldEvents.length,
     historyEntries: world.worldHistory.length,
     economyCycle: world.economy.currentCycle,
-    worldStability: world.global.worldStability
+    worldStability: world.global.worldStability ?? 100
   };
 }
