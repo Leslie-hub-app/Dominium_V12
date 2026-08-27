@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0c0c0e;
+  --surface: #16161a;
+  --ink: #ececec;
+  --accent: #fbbf24;
+  --rose: #f43f5e;
+  --emerald: #10b981;
+  --violet: #8b5cf6;
+  --fuchsia: #d946ef;
+  --cyan: #06b6d4;
+  --orange: #f59e0b;
+  --ink-dim: rgba(236, 236, 232, 0.6);
+  --ink-faint: rgba(236, 236, 232, 0.08);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-top: env(safe-area-inset-top, 0px);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.font-mono {
+  font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(236, 236, 232, 0.12);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(236, 236, 232, 0.25);
+}
+
+/* Safe area padding utilities */
+.safe-bottom-pad {
+  padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+}
+
+.safe-nav-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* User Selected Element Adjustments */
+div#root:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > main#central-game-content:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) {
+  height: 165.988px;
+  width: 342px;
+}
+
+div#root:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > main#central-game-content:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) {
+  height: 62.724999999999994px;
+  width: 344px;
+}
+
+div#root:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > main#central-game-content:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) {
+  height: 115.775px;
+}
+
+div#root:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > main#central-game-content:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(5) {
+  display: none !important;
+}
+

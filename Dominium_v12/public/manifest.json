@@ -1,0 +1,25 @@
+{
+  "name": "Dominium: Life & Empire Simulator",
+  "short_name": "Dominium",
+  "description": "A comprehensive living-world simulation of life choices, corporate empires, and sovereign power.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0c0c0e",
+  "theme_color": "#0c0c0e",
+  "categories": ["games", "simulation", "strategy"],
+  "icons": [
+    {
+      "src": "/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

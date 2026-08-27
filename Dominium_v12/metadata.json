@@ -1,0 +1,8 @@
+{
+  "name": "Dominium: Life, Business \u0026 Power (Mobile Beta v7)",
+  "description": "A deep, interconnected living-world simulation combining life choices, business empire tycoon, political governance, global economy, sports management, and dynastic legacy.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

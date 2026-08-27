@@ -1,0 +1,22 @@
+import { createInitialGameState } from '../src/engine/simulationEngine';
+import { ensureLivingBankingProfile, openLivingBankAccount } from '../src/engine/livingBankingEngine';
+import { ensurePoliticalGovernance, runForPublicOffice, managePublicOffice } from '../src/engine/politicalGovernanceEngine';
+
+const state:any=createInitialGameState('Test','Player',30,'Cape Town','South Africa',100000,2026,1);
+const banking=ensureLivingBankingProfile(state);
+const bank=state.bankingProfile.institutions[0];
+if(!bank) throw new Error('No banking institutions');
+const before=state.finances.cash;
+const opened=openLivingBankAccount(state,bank.id,'HIGH_YIELD',5000);
+if(!opened.success || !opened.account) throw new Error('High-yield account failed');
+if(state.finances.cash!==before-5000) throw new Error('Cash transfer failed');
+if(opened.account.interestRateAnnual<=0) throw new Error('Invalid interest rate');
+const pg=ensurePoliticalGovernance(state);
+state.character.attributes.reputation=100; state.character.attributes.worldInfluence=100;
+const camp=runForPublicOffice(state,'President / Prime Minister','South Africa',10000);
+if(!camp.success) throw new Error(camp.message);
+state.politics.currentOffice.inOffice=true; state.politics.currentOffice.title='President / Prime Minister'; state.politics.currentOffice.cityOrNation='South Africa';
+const gov=managePublicOffice(state,'INFRASTRUCTURE',10,'National infrastructure programme');
+if(!gov.success) throw new Error(gov.message);
+if(!state.eventsFeed.some((e:any)=>e.category==='Politics')) throw new Error('Political event missing');
+console.log('LIVING BANKING & POLITICS CERTIFICATION PASSED');
